@@ -1,1 +1,8 @@
-wsergfsjkdnslkdl
+<button (click)="getMessage()"> Get Message</button>
+<div *ngIf='msgStatus'> 
+  <div *ngFor="let myMessage of myMessage">      
+     <p> {{myMessage.message}} </p>
+  </div>
+</div>
+
+<a [routerLink] ="['/signin']">Signout </a>

@@ -14,6 +14,7 @@
         </div>    
 
         <input [disabled]="!username.value || !password.value"  type="submit" class ="btn-primary btn" value="Signin" (click)="Data2Login()">
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
     </form>
 </div>
  

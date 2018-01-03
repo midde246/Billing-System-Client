@@ -16,6 +16,9 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 //Services Dependency....
 import { ApiService } from './services/api.service'
 
+//Guard Dependencies......
+import { AuthGaurd } from './auth.guard';
+
 @NgModule({
   imports:      [ BrowserModule,
                   FormsModule,
@@ -28,7 +31,9 @@ import { ApiService } from './services/api.service'
                   SigninComponent,
                   DashboardComponent
                  ],
-  providers: [ ApiService],               
+  providers:   [ ApiService,
+                 AuthGaurd
+                ],               
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
