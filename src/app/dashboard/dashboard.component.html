@@ -1,8 +1,27 @@
-<button (click)="getMessage()"> Get Message</button>
-<div *ngIf='msgStatus'> 
-  <div *ngFor="let myMessage of myMessage">      
-     <p> {{myMessage.message}} </p>
-  </div>
-</div>
+<html>
+   <body>
+       <div> <a [routerLink] ="['/signin']">Signout </a> </div>
 
-<a [routerLink] ="['/signin']">Signout </a>
+       <!--  <div class="container darker">
+          <p>Hey! I'm fine. Thanks for asking!</p>
+        </div> -->
+
+        <button (click)="getMessage()"> Get Messages</button>
+        <div *ngIf='msgStatus'> 
+           <div *ngFor="let myMessage of myMessages">   
+              <div class="container">    
+                 <p> {{myMessage.message}} </p>
+              </div>   
+          </div>
+        </div>
+        <div>
+           <div *ngIf ="sendMessageText.message"class="container darker">
+             <p>{{sendMessageText.message}}</p>
+           </div>
+           <input type="text" [(ngModel)]="sendMessageText.message"> <button (click)="sendMessage()">Send Message</button>
+        </div>
+        
+    </body>
+</html>
+
+

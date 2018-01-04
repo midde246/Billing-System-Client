@@ -1,0 +1,7 @@
+<!-- First Number: <input type="number" [value]="firstNumber"  (keyup)="addMethod($event.target.value)" ><br>
+Second Number: <input type="number" [value]="secondNumber" (keyup)="addMethod2($event.target.value)" ><br> -->
+
+First Number: <input type="number" [(ngModel)] = "first"  ><br>
+Second Number: <input type="number" [(ngModel)] = "second" ><br>
+
+<p> {{result}} </p>

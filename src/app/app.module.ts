@@ -18,6 +18,7 @@ import { ApiService } from './services/api.service'
 
 //Guard Dependencies......
 import { AuthGaurd } from './auth.guard';
+import { PbComponent } from './PB/pb.component';
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -29,7 +30,8 @@ import { AuthGaurd } from './auth.guard';
   declarations: [ AppComponent,
                   SignupComponent,
                   SigninComponent,
-                  DashboardComponent
+                  DashboardComponent,
+                  PbComponent
                  ],
   providers:   [ ApiService,
                  AuthGaurd

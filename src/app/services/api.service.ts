@@ -38,12 +38,22 @@ export class ApiService{
     }
     
     getData(url:any){   
+       //Setting header for proper Authentication 
        let headers =new Headers({'authorization': 'Bearer '+ this.token})
-       console.log(headers)
        let options = new RequestOptions({headers:headers})  
-       console.log(options);
+ 
        return this.http.get(url, options).map(
             (response:Response) => response.json()
         )
+    }
+    sendData(url:any, data:any){
+       console.log(data) 
+        //Setting header for proper Authentication 
+       let headers =new Headers({'authorization': 'Bearer '+ this.token})
+       let options = new RequestOptions({headers:headers})  
+
+       return this.http.post(url, data, options).map(
+              (response: Response) => response.json()    
+       )
     }
 }
