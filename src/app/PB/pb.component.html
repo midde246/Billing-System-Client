@@ -1,0 +1,41 @@
+<html>
+    <body>    
+        <div class="main">
+        {{title}}
+        </div>
+        <div>
+            <table border=1 align="center">      
+                    <tr>
+                        <th colspan="3" align="center"> Personal Monthly Budget </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="3">PROJECTED MONTHLY INCOME</th>
+                        <th>Income</th>
+                        <td><input   [(ngModel)]="pFirstNum"></td>
+                    </tr>
+                    <tr>
+                        <th>Extra Income</th>
+                        <td><input   [(ngModel)]="pSecondNum"></td>
+                    </tr>
+                    <tr>
+                        <th>Total Monthly Income</th>
+                        <td>{{pFirstNum | add:pSecondNum}}</td>
+                    </tr>
+                           
+                    <tr>
+                        <th rowspan="3">ACTUAL MONTHLY INCOME</th>
+                        <th>Income</th>
+                        <td><input  [(ngModel)]="aFirstNum"></td>
+                    </tr>
+                    <tr>
+                        <th>Extra Income</th>
+                        <td><input  [(ngModel)]="aSecondNum"></td>
+                    </tr>
+                    <tr>
+                        <th>Total Monthly Income</th>
+                        <td>{{aFirstNum | add: aSecondNum}}</td>
+                    </tr>      
+            </table>    
+        </div>
+    </body>
+</html>

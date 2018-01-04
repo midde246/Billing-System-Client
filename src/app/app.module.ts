@@ -12,23 +12,34 @@ import { AppComponent }  from './app.component';
 import { SignupComponent } from './signup/signup.component'
 import { SigninComponent } from './signin/signin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { PbComponent } from './PB/pb.component';
 
 //Services Dependency....
 import { ApiService } from './services/api.service'
+
+//Guard Dependencies......
+import { AuthGaurd } from './auth.guard';
+
+//Pipe Depedencies....
+import { AddPipe } from './app.piping'
 
 @NgModule({
   imports:      [ BrowserModule,
                   FormsModule,
                   ReactiveFormsModule,
                   HttpModule,
-                  routing
+                  routing,
                 ],
   declarations: [ AppComponent,
                   SignupComponent,
                   SigninComponent,
-                  DashboardComponent
+                  DashboardComponent,
+                  PbComponent,
+                  AddPipe
                  ],
-  providers: [ ApiService],               
+  providers:   [ ApiService,
+                 AuthGaurd
+                ],               
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

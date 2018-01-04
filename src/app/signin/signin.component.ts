@@ -11,28 +11,26 @@ import { ApiService } from '../services/api.service';
 })
 
 export class SigninComponent{
-    constructor(private apiService: ApiService,private router:Router){
-
-    }
-     
+    constructor(private router:Router, private apiService: ApiService){}
     ngOnInit(){
-        this.apiService.signout()
+        this.apiService.signOut()
     }
-   
-    private error:any
+    error =''
+    
     userSigninForm = new FormGroup({
         username: new FormControl(),
         password: new FormControl()
     })
 
     Data2Login(){
-         this.apiService.signIn('http://127.0.0.1:8080/api/testLogin', this.userSigninForm.value).subscribe(
+         this.apiService.signIn('http://127.0.0.1:8080/api/signin', this.userSigninForm.value).subscribe(
              result => {
                  if(result == true){
-                    this.router.navigate(['/dashboard'])
+                    this.router.navigate(['/dashboard']);
                  }
                  else{
-                     this.error = 'Wrong Username or Password'
+                    this.error = 'Invalid Username or Password'
+
                  }
              }
          )
