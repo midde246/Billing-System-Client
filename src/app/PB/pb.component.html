@@ -4,7 +4,7 @@
         {{title}}
         </div>
         <div>
-            <table> 
+            <table > 
                    <!-- Setting static Header-->     
                     <tr class="incomeHead" (contextmenu)="createField()">
                         <th> Income </th>
@@ -14,57 +14,78 @@
                     </tr> 
 
                     <!-- Dynamic Field creation-->
-                    <tr>
+                    
+                        <tr>
                             <td>Basic Income</td>
-                            <td><input  [(ngModel)]="aFirstNum"></td>
-                            <td><input  [(ngModel)]="aSecondNum"></td>
-                            <td>{{aFirstNum | sub: aSecondNum}}</td>
-                    </tr>
+                            <td><input  [(ngModel)]="pIncome1"></td>
+                            <td><input  [(ngModel)]="aIncome1"></td>
+                            <td>{{pIncome1 | sub: aIncome1}}</td>
+                        </tr>    
+                        <tr>
+                            <td>Internet Income</td>
+                            <td><input  [(ngModel)]="pIncome2"></td>
+                            <td><input  [(ngModel)]="aIncome2"></td>
+                            <td>{{pIncome2 | sub: aIncome2}}</td>
+                        </tr>   
+                        <tr>
+                            <td>Extra Income</td>
+                            <td><input  [(ngModel)]="pIncome3"></td>
+                            <td><input  [(ngModel)]="aIncome3"></td>
+                            <td>{{pIncome3 | sub: aIncome3}}</td>
+                        </tr>   
 
                     <!-- Setting of Total Data Calculation -->
                     <tr class="incomeTotal">
-                        <td>Total Income</td>
-                        <td>1000</td>
-                        <td>1200</td>
-                        <td>200</td>
+                        <td>Total </td>
+                        <td #pTotalIncome>{{pIncome1 | add: pIncome2 | add:pIncome3}}</td>
+                        <td #aTotalIncome >{{aIncome1 | add: aIncome2 | add:aIncome3}}</td>
+                        <td>{{pIncome1 | add: pIncome2 | add:pIncome3 | sub:aIncome1 | sub: aIncome2 | sub:aIncome3}}</td> 
                     </tr>                
                 </table>
 
+                <br> 
 
-                   <!--  <tr>
-                        <th>Extra Income</th>
-                        <td><input    [(ngModel)]="pSecondNum" value='0'></td>
-                    </tr>
-                    <tr>
-                        <th>Total Monthly Income</th>
-                        <td class="rightSide">{{pFirstNum | add:pSecondNum}}</td>
-                    </tr>
-                           
-                    <tr>
-                        <th rowspan="3">ACTUAL MONTHLY INCOME</th>
-                        <th>Income</th>
-                        <td><input  [(ngModel)]="aFirstNum"></td>
-                    </tr>
-                    <tr>
-                        <th>Extra Income</th>
-                        <td><input  [(ngModel)]="aSecondNum"></td>
-                    </tr>
-                    <tr>
-                        <th>Total Monthly Income</th>
-                        <td class="rightSide">{{aFirstNum | add: aSecondNum}}</td>
-                    </tr>      
-            </table>    
-        </div>
-        <div>
-            <table border ="1">
-                <tr>
-                    <th colspan="2"> Housing Expenses </th>
-                </tr>
-                <tr>
-                    <td>sedfskjdf</td>
-                    <td> sefsed</td>
-                </tr>
-            </table> -->
+                <table > 
+                        <!-- Setting static Header-->     
+                         <tr class="othersHead" (contextmenu)="createField()">
+                             <th> House Expenses </th>
+                             <th> Projected</th>
+                             <th> Actual</th>
+                             <th> Difference</th>
+                         </tr> 
+     
+                         <!-- Dynamic Field creation-->
+                         
+                             <tr>
+                                 <td>Basic Income</td>
+                                 <td><input  [(ngModel)]="pIncome1"></td>
+                                 <td><input  [(ngModel)]="aIncome1"></td>
+                                 <td>{{pIncome1 | sub: aIncome1}}</td>
+                             </tr>    
+                             <tr>
+                                 <td>Internet Income</td>
+                                 <td><input  [(ngModel)]="pIncome2"></td>
+                                 <td><input  [(ngModel)]="aIncome2"></td>
+                                 <td>{{pIncome2 | sub: aIncome2}}</td>
+                             </tr>   
+                             <tr>
+                                 <td>Extra Income</td>
+                                 <td><input  [(ngModel)]="pIncome3"></td>
+                                 <td><input  [(ngModel)]="aIncome3"></td>
+                                 <td>{{pIncome3 | sub: aIncome3}}</td>
+                             </tr>   
+     
+                         <!-- Setting of Total Data Calculation -->
+                         <tr class="othersTotal">
+                             <td>Total </td>
+                             <td #pTotalIncome>{{pIncome1 | add: pIncome2 | add:pIncome3}}</td>
+                             <td #aTotalIncome >{{aIncome1 | add: aIncome2 | add:aIncome3}}</td>
+                             <td>{{pIncome1 | add: pIncome2 | add:pIncome3 | sub:aIncome1 | sub: aIncome2 | sub:aIncome3}}</td> 
+                         </tr>                
+                     </table>
+
+                <button align="center" (click)="saveData(pTotalIncome.innerHTML,aTotalIncome.innerHTML)">Save Data</button>
+                    
         </div>
     </body>
 </html>

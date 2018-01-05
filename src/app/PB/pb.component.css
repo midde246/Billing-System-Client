@@ -27,7 +27,17 @@ input{
     color:white;
  }
 
+ .othersHead{
+    background-color: rgb(18, 56, 133);
+    color:white;
+ }
+
  .incomeTotal{
     background-color: aquamarine;
+    font-weight: bold;
+ }
+
+ .othersTotal{
+    background-color: rgb(217, 241, 233);
     font-weight: bold;
  }

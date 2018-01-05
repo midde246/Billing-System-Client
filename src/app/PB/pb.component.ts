@@ -7,10 +7,25 @@ import { Component } from '@angular/core';
 })
 export class PbComponent  { 
     titile = "Personal Monthly Budget"
-    /*  myIncomeAttr =  */
+    private pTotalIncome:number
+    private totalIncome:number;
+    private aTotalIncome:number;
+    
+    saveData(pTotalIncome:any,aTotalIncome:any){
+      this.pTotalIncome = pTotalIncome;
+      this.aTotalIncome = aTotalIncome;
+      console.log(this.aTotalIncome)
+     return false;
+    }
+   
+   
+    /* private createStatus : boolean = false
+    private rowNo = [1,2,3,5,5]
+    private myIncomeAttr =  "Basic Income" 
     createField(){
-      alert("Your field has been created");
+       this.createStatus = true
 
       return false;
-  }
+     }*/
+
  }
