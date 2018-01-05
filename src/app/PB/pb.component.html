@@ -4,22 +4,40 @@
         {{title}}
         </div>
         <div>
-            <table border=1 align="center">      
+            <table> 
+                   <!-- Setting static Header-->     
+                    <tr class="incomeHead" (contextmenu)="createField()">
+                        <th> Income </th>
+                        <th> Projected</th>
+                        <th> Actual</th>
+                        <th> Difference</th>
+                    </tr> 
+
+                    <!-- Dynamic Field creation-->
                     <tr>
-                        <th colspan="3" align="center"> Personal Monthly Budget </th>
+                            <td>Basic Income</td>
+                            <td><input  [(ngModel)]="aFirstNum"></td>
+                            <td><input  [(ngModel)]="aSecondNum"></td>
+                            <td>{{aFirstNum | sub: aSecondNum}}</td>
                     </tr>
-                    <tr>
-                        <th rowspan="3">PROJECTED MONTHLY INCOME</th>
-                        <th>Income</th>
-                        <td><input   [(ngModel)]="pFirstNum"></td>
-                    </tr>
-                    <tr>
+
+                    <!-- Setting of Total Data Calculation -->
+                    <tr class="incomeTotal">
+                        <td>Total Income</td>
+                        <td>1000</td>
+                        <td>1200</td>
+                        <td>200</td>
+                    </tr>                
+                </table>
+
+
+                   <!--  <tr>
                         <th>Extra Income</th>
-                        <td><input   [(ngModel)]="pSecondNum"></td>
+                        <td><input    [(ngModel)]="pSecondNum" value='0'></td>
                     </tr>
                     <tr>
                         <th>Total Monthly Income</th>
-                        <td>{{pFirstNum | add:pSecondNum}}</td>
+                        <td class="rightSide">{{pFirstNum | add:pSecondNum}}</td>
                     </tr>
                            
                     <tr>
@@ -33,9 +51,20 @@
                     </tr>
                     <tr>
                         <th>Total Monthly Income</th>
-                        <td>{{aFirstNum | add: aSecondNum}}</td>
+                        <td class="rightSide">{{aFirstNum | add: aSecondNum}}</td>
                     </tr>      
             </table>    
+        </div>
+        <div>
+            <table border ="1">
+                <tr>
+                    <th colspan="2"> Housing Expenses </th>
+                </tr>
+                <tr>
+                    <td>sedfskjdf</td>
+                    <td> sefsed</td>
+                </tr>
+            </table> -->
         </div>
     </body>
 </html>

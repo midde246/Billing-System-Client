@@ -21,7 +21,8 @@ import { ApiService } from './services/api.service'
 import { AuthGaurd } from './auth.guard';
 
 //Pipe Depedencies....
-import { AddPipe } from './app.piping'
+import { AddPipe } from './pipes/add.piping'
+import { SubPipe } from './pipes/sub.piping';
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -35,7 +36,8 @@ import { AddPipe } from './app.piping'
                   SigninComponent,
                   DashboardComponent,
                   PbComponent,
-                  AddPipe
+                  AddPipe,
+                  SubPipe
                  ],
   providers:   [ ApiService,
                  AuthGaurd

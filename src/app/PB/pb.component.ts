@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./pb.component.css']
 })
 export class PbComponent  { 
-   titile = "Personal Monthly Budget"
-   /* firstNum:number
-   secondNum:number */
-    
+    titile = "Personal Monthly Budget"
+    /*  myIncomeAttr =  */
+    createField(){
+      alert("Your field has been created");
+
+      return false;
+  }
  }
