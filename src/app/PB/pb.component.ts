@@ -7,10 +7,17 @@ import { Component } from '@angular/core';
 })
 export class PbComponent  { 
     titile = "Personal Monthly Budget"
+
+    // All Instancees.....
+    //private createStatus : boolean = false
     private pTotalIncome:number
     private totalIncome:number;
     private aTotalIncome:number;
-    
+
+    //Testing purpose....
+    rows:any = []
+    rowName =''
+
     saveData(pTotalIncome:any,aTotalIncome:any){
       this.pTotalIncome = pTotalIncome;
       this.aTotalIncome = aTotalIncome;
@@ -18,14 +25,12 @@ export class PbComponent  {
      return false;
     }
    
-   
-    /* private createStatus : boolean = false
-    private rowNo = [1,2,3,5,5]
-    private myIncomeAttr =  "Basic Income" 
-    createField(){
-       this.createStatus = true
 
-      return false;
-     }*/
+    createField(myRowName:any){
+         console.log(myRowName)
+         this.rowName = myRowName
+         this.rows.push(this.rowName)  
 
+       return false;
+     }
  }
