@@ -14,6 +14,7 @@ import { SigninComponent } from './signin/signin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { PbComponent } from './PB/pb.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { AdminComponent } from './admin/admin.component';
 
 //Services Dependency....
 import { ApiService } from './services/api.service'
@@ -25,6 +26,7 @@ import { AuthGaurd } from './auth.guard';
 import { AddPipe } from './pipes/add.piping'
 import { SubPipe } from './pipes/sub.piping';
 import { MultPipe } from './pipes/mult.piping';
+
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -39,10 +41,11 @@ import { MultPipe } from './pipes/mult.piping';
                   DashboardComponent,
                   PbComponent,
                   InvoiceComponent,
+                  AdminComponent,
                   AddPipe,
                   SubPipe,
                   MultPipe
-                 ],
+                 ],                 
   providers:   [ ApiService,
                  AuthGaurd
                 ],               
