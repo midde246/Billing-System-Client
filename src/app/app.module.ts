@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component'
 import { SigninComponent } from './signin/signin.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { PbComponent } from './PB/pb.component';
+import { InvoiceComponent } from './invoice/invoice.component'
 
 //Services Dependency....
 import { ApiService } from './services/api.service'
@@ -36,6 +37,7 @@ import { SubPipe } from './pipes/sub.piping';
                   SigninComponent,
                   DashboardComponent,
                   PbComponent,
+                  InvoiceComponent,
                   AddPipe,
                   SubPipe
                  ],
