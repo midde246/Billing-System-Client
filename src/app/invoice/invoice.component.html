@@ -1,135 +1,98 @@
-<!--  <html>
-     <body>
-
-         <div class="head">
-             INVOICE
-         </div>
-         <br>
-         <div class="invoiceNo">
-           &nbsp; &nbsp; Invoice #<input type="text" value="01">
-            <br>
-         </div>
-         <div class="row infos">
-        <div class="col-xs-6">
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container" >
-            <select>
-                <option> INR </option>
-                <option> USD </option>
-            </select>
-            </div>
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="container" width="800px" id="invoice" >
+    <div class="row">
+      <div class="col-xs-12 heading">
+        INVOICE
+      </div>
+    </div>
+    <div class="row branding">
+      <div class="col-xs-6">
+        <div class="invoice-number-container">
+          <label for="invoice-number">Invoice #</label><input type="text" id="invoice-number" value="10" />
         </div>
-        <div class="col-xs-6 right">
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text"  /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh"  /></div>
+      </div>
+      <div class="col-xs-6 logo-container">
+        <input type="file" id="imgInp" />
+        <img id="company_logo"  alt="your image" width="300" />
+        <div>
+          <div class="noPrint" ng-hide="printMode">
+            <a   href="#" >Edit Logo</a>
+            <a   id="remove_logo" href="#" >logo</a>
+          </div>
         </div>
-        </div>
-
-     </body>
- </html> -->
-
-
-
- 
- <html>
- 
- <body ng-app="invoicing" ng-controller="InvoiceCtrl" >
-   <div class="container" width="800px" id="invoice" >
-     <div class="row">
-       <div class="col-xs-12 heading">
-         INVOICE
-       </div>
-     </div>
-
-     <div class="row branding">
-       <div class="col-xs-6">
-         <div class="invoice-number-container">
-           <label for="invoice-number">Invoice #</label><input type="text" id="invoice-number"/>
-         </div>
-       </div>   
-     </div>
-
+      </div>
+    </div>  
      <div class="row infos">
-       <div class="col-xs-6">
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text"  value="sgdfjsh" /></div>
-            <div class="input-container" >
-            <select>
-                <option> INR </option>
-                <option> USD </option>
-            </select>
-         </div>
-       </div>
-       <div class="col-xs-6 right">
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh" /></div>
-            <div class="input-container"><input type="text" value="sgdfjsh"  /></div>
-       </div>
-     </div>
-     <div class="items-table">
-       <div class="row header">
-         <div class="col-xs-1">&nbsp;</div>
-         <div class="col-xs-5">Description</div>
-         <div class="col-xs-2">Quantity</div>
-         <div class="col-xs-2">Cost $</div>
-         <div class="col-xs-2 text-right">Total</div>
-       </div>
-       <div class="row invoice-item" >
-         <div class="col-xs-1 remove-item-container">
-           <a  class="btn btn-danger">[X]</a>
-         </div>
-         <div class="col-xs-5 input-container">
-           <input  placeholder="Description" />
-         </div>
-         <div class="col-xs-2 input-container">
-           <input   value="1" size="4"   placeholder="Quantity" />
-         </div>
-         <div class="col-xs-2 input-container">
-           <input   value="0.00"   size="6" placeholder="Cost" />
-         </div>
-         <div class="col-xs-2 text-right input-container">
-            REDSULT
-         </div>
-       </div>
-       <div class="row invoice-item">
-         <div class="col-xs-12 add-item-container"  >
-           <a class="btn btn-primary"   >[+]</a>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-xs-10 text-right">Sub Total</div>
-         <div class="col-xs-2 text-right"> ghvhnb </div>
-       </div>
-       <div class="row">
-         <div class="col-xs-10 text-right">Tax(%): <input   style="width:43px"></div>
-         <div class="col-xs-2 text-right">gfchm</div>
-       </div>
-       <div class="row">
-         <div class="col-xs-10 text-right">Grand Total:</div>
-         <div class="col-xs-2 text-right">grand total</div>
-       </div>
-     </div>
-     <div class="row noPrint actions">
-       <a href="#" class="btn btn-primary"  >Print</a>
-       <a href="#" class="btn btn-primary"  >Reset</a>
-       <a href="#" class="btn btn-primary"  >Turn On Print Mode</a>
-       <a href="#" class="btn btn-primary"  >Turn Off Print Mode</a>
-     </div>
-   </div>
+      <div class="col-xs-6">
+        <div class="input-container"><input type="text"  value="Your Data" /></div>
+        <div class="input-container"><input type="text"  value="Your Data" /></div>
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Your Data" /></div>
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container" >
+          <select></select>
+        </div>
+      </div>
+      <div class="col-xs-6 right">
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Your Data" /></div>
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Your Data"/></div>
+      </div>
+    </div>
+    <div class="items-table">
+      <div class="row header">
+        <div class="col-xs-1">&nbsp;</div>
+        <div class="col-xs-5">Description</div>
+        <div class="col-xs-2">Quantity</div>
+        <div class="col-xs-2">Cost  </div>
+        <div class="col-xs-2 text-right">Total</div>
+      </div>
+      <div *ngFor="let item of items; let i = index" class="row invoice-item">
+        <div class="col-xs-1 remove-item-container">
+          <a *ngIf="!printStatusShow" class="btn btn-danger" (click) = "removeRow(i)">[X]</a>
+        </div>
+        <div class="col-xs-5 input-container">
+          <input  placeholder="Description"  [(ngModel)]="item.description" />
+        </div>
+        <div class="col-xs-2 input-container">
+          <input  value="1" size="4"  placeholder="Quantity" [(ngModel)]="item.qty"/>
+        </div>
+        <div class="col-xs-2 input-container">
+          <input   value="0.00"  size="6" placeholder="Cost" [(ngModel)]="item.cost" />
+        </div>
+        <div class="col-xs-2 text-right input-container">
+           {{item.qty | mult: item.cost}}
+        </div>
+      </div>
+      <div class="row invoice-item">
+        <div class="col-xs-12 add-item-container"  >
+          <a *ngIf="!printStatusShow" class="btn btn-primary" (click) = "createRow()" >[+]</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 text-right">Sub Total: {{subTotal()}}</div>
+        <div class="col-xs-2 text-right"> </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 text-right">Tax(%): <input   style="width:43px" [(ngModel)] = "totalTax"></div>
+        <div class="col-xs-2 text-right"> </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 text-right">Grand Total: {{grandTotal()}}</div>
+        <div class="col-xs-2 text-right"> </div>
+      </div>
+    </div>
+    <div class="row noPrint actions">
+      <a  *ngIf="printStatusShow" (click)="printDoc()"class="btn btn-primary" >Print</a>
+   <!--    <a   class="btn btn-primary"  >Reset</a> -->
+      <a  *ngIf="!printStatusShow" (click)="printStatusOn()" class="btn btn-primary"  >Turn On Print Mode</a>
+      <a  *ngIf="printStatusShow" (click)="printStatusOff()"  class="btn btn-primary" >Turn Off Print Mode</a>
+    </div>
+  </div>
  
-    
- </body>
- </html>
- 
+</body>
+</html>
