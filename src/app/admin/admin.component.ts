@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'midde-admin',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent  { 
- constructor(){}
+ constructor(private apiService:ApiService){}
   ngOnInit(){
     
   }
@@ -19,7 +20,8 @@ export class AdminComponent  {
  
 
   Data2AddItemGst(){
-    alert("Item added")
-    console.log(this.addItemGst.value);
+     this.apiService.sendData('http://127.0.0.1:8080/api/addItemGst', this.addItemGst.value).subscribe(
+         response => console.log("Data Inserted successfully")
+     )
   }
  }

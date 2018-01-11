@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'midde-invoice',
@@ -7,12 +8,23 @@ import { Component } from '@angular/core';
 })
 export class InvoiceComponent  { 
 
-    items =[{description:"",qty:0, cost:0}]
+    items =[{item:"",qty:0, cost:0, gst:0}]
     private totalTax:number
     private printStatusShow:boolean = false
+    private resultItems:any
+    private gst =0
+
+    constructor(private apiService:ApiService){}
+
+    ngOnInit(){
+      this.apiService.getData('http://localhost:8080/api/getItemGst').subscribe(
+          response => this.resultItems = response             
+      )
+    }
+    
+   
     createRow(){
-        this.items.push({ description:"",qty:0, cost:0})
-        console.log("Item added");
+        this.items.push({item:"",qty:0, cost:0, gst:0})
         console.log(this.items);
     }
 
@@ -21,19 +33,24 @@ export class InvoiceComponent  {
         this.items.splice(removeIndex, 1)
     }
 
-    subTotal(){
+    onItemSelect(item:any, index:any){
+        for(let i=0; i<this.resultItems.length; i++){
+            if(this.resultItems[i].nameOfItem == item){
+               // this.gst = this.resultItems[i].gst;
+               this.items[index].gst = this.resultItems[i].gst; 
+            }
+        }
+    }
+ 
+    total(){
         let total =0.0
         for(let i=0; i<this.items.length;i++){
-           total = total + (this.items[i].qty * this.items[i].cost)
+           total = total + ((this.items[i].qty * this.items[i].cost) + (this.items[i].qty * this.items[i].cost * this.items[i].gst)/100);
         }
+   
         return total;
     }
-
-    grandTotal(){
-        let subTotal = this.subTotal()
-        let grandTotal = subTotal + (subTotal * this.totalTax)/100;
-        return grandTotal;
-    }
+ 
 
     printStatusOff():void{
        this.printStatusShow = false;

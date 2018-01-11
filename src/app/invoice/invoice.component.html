@@ -13,7 +13,7 @@
           <label for="invoice-number">Invoice #</label><input type="text" id="invoice-number" value="10" />
         </div>
       </div>
-      <div class="col-xs-6 logo-container">
+     <!--  <div class="col-xs-6 logo-container">
         <input type="file" id="imgInp" />
         <img id="company_logo"  alt="your image" width="300" />
         <div>
@@ -22,50 +22,59 @@
             <a   id="remove_logo" href="#" >logo</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>  
      <div class="row infos">
       <div class="col-xs-6">
-        <div class="input-container"><input type="text"  value="Your Data" /></div>
-        <div class="input-container"><input type="text"  value="Your Data" /></div>
-        <div class="input-container"><input type="text"  value="Your Data"/></div>
-        <div class="input-container"><input type="text"  value="Your Data" /></div>
-        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Customer Name" /></div>
+        <div class="input-container"><input type="text"  value="Customer Address" /></div>
+        <div class="input-container"><input type="text"  value="Customer Contact No"/></div>
+        <div class="input-container"><input type="text"  value="Customer Mail Id" /></div>
+        <div class="input-container"><input type="text"  value="Customer Data"/></div>
         <div class="input-container" >
           <select></select>
         </div>
       </div>
       <div class="col-xs-6 right">
-        <div class="input-container"><input type="text"  value="Your Data"/></div>
-        <div class="input-container"><input type="text"  value="Your Data" /></div>
-        <div class="input-container"><input type="text"  value="Your Data"/></div>
-        <div class="input-container"><input type="text"  value="Your Data"/></div>
+        <div class="input-container"><input type="text"  value="Your Company Name"/></div>
+        <div class="input-container"><input type="text"  value="Your Company Address" /></div>
+        <div class="input-container"><input type="text"  value="Your Contact No"/></div>
+        <div class="input-container"><input type="text"  value="Your Mail Id"/></div>
         <div class="input-container"><input type="text"  value="Your Data"/></div>
       </div>
     </div>
     <div class="items-table">
       <div class="row header">
         <div class="col-xs-1">&nbsp;</div>
-        <div class="col-xs-5">Description</div>
+        <div class="col-xs-3">Item</div>
         <div class="col-xs-2">Quantity</div>
         <div class="col-xs-2">Cost  </div>
+        <div class="col-xs-2">GST  </div>
         <div class="col-xs-2 text-right">Total</div>
       </div>
       <div *ngFor="let item of items; let i = index" class="row invoice-item">
         <div class="col-xs-1 remove-item-container">
           <a *ngIf="!printStatusShow" class="btn btn-danger" (click) = "removeRow(i)">[X]</a>
         </div>
-        <div class="col-xs-5 input-container">
-          <input  placeholder="Description"  [(ngModel)]="item.description" />
+        <div class="col-xs-3 input-container">
+          <!-- <input  placeholder="Description"  [(ngModel)]="item.description" /> -->
+          <select (change)="onItemSelect($event.target.value, i)" [(ngModel)]="item.item" >
+            <option  *ngFor="let resultItem of resultItems" value="{{resultItem.nameOfItem}}">{{resultItem.nameOfItem}}</option>
+          </select>
+          
         </div>
         <div class="col-xs-2 input-container">
-          <input  value="1" size="4"  placeholder="Quantity" [(ngModel)]="item.qty"/>
+          <input  value="1" size="4"   [(ngModel)]="item.qty"/>
         </div>
         <div class="col-xs-2 input-container">
-          <input   value="0.00"  size="6" placeholder="Cost" [(ngModel)]="item.cost" />
+          <input   value="0.00"  size="6"  [(ngModel)]="item.cost" />
+        </div>
+        <div class="col-xs-2 input-container">
+            {{item.gst}}
         </div>
         <div class="col-xs-2 text-right input-container">
-           {{item.qty | mult: item.cost}}
+           <!-- the formula behind :: (qty*cost) + ((qty*cost*gst)/100) -->
+           {{(item.qty | mult:item.cost) | add: ((item.qty | mult: item.cost | mult: item.gst) | div: 100)}}
         </div>
       </div>
       <div class="row invoice-item">
@@ -73,17 +82,11 @@
           <a *ngIf="!printStatusShow" class="btn btn-primary" (click) = "createRow()" >[+]</a>
         </div>
       </div>
+  
       <div class="row">
-        <div class="col-xs-10 text-right">Sub Total: {{subTotal()}}</div>
-        <div class="col-xs-2 text-right"> </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-10 text-right">Tax(%): <input   style="width:43px" [(ngModel)] = "totalTax"></div>
-        <div class="col-xs-2 text-right"> </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-10 text-right">Grand Total: {{grandTotal()}}</div>
-        <div class="col-xs-2 text-right"> </div>
+        <!-- the formula behind :: forEach((qty*cost) + ((qty*cost*gst)/100)) -->
+        <div class="col-xs-12 text-right">Grand Total: {{total()}}</div>
+        <!-- <div class="col-xs-2 text-right"> </div> -->
       </div>
     </div>
     <div class="row noPrint actions">

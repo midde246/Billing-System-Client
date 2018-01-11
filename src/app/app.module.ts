@@ -26,6 +26,7 @@ import { AuthGaurd } from './auth.guard';
 import { AddPipe } from './pipes/add.piping'
 import { SubPipe } from './pipes/sub.piping';
 import { MultPipe } from './pipes/mult.piping';
+import { DivPipe } from './pipes/div.piping';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { MultPipe } from './pipes/mult.piping';
                   AdminComponent,
                   AddPipe,
                   SubPipe,
-                  MultPipe
+                  MultPipe,
+                  DivPipe
                  ],                 
   providers:   [ ApiService,
                  AuthGaurd
